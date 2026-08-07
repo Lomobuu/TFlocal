@@ -7,7 +7,3 @@ variable "location" {
   type        = string
   default = "norwayeast"
 }
-
-variable "AUTH_SECRET" {
-  type        = string
-}
