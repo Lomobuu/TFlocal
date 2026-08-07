@@ -1,0 +1,37 @@
+on: workflow_dispatch
+
+name: BackendStorageCreate
+
+permissions:
+  id-token: write # Require write permission to Fetch an OIDC token.
+  contents: read
+
+env:
+  location: "norwayeast"
+  terraformStorageRG: 'RG-tflocal-Management-weu'
+  terraformStorageAccount: 'satflocalmanagementweu'
+  containerNameBackend: 'tfstate'
+  backendAzureRmKey: 'terraform.tfstate'
+  ARM_USE_OIDC: true
+  ARM_CLIENT_ID: "${{ secrets.AZURE_CLIENT_ID }}"
+  ARM_SUBSCRIPTION_ID: "${{ secrets.AZURE_SUBSCRIPTION_ID }}"
+  ARM_TENANT_ID: "${{ secrets.AZURE_TENANT_ID }}"
+
+jobs:
+
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v4
+
+    - uses: hashicorp/setup-terraform@v3
+
+    - name: Terraform Init (local)
+      working-directory: .github/Terraform/backend
+      run: terraform init
+
+    - name: Terraform Apply (backend infra)
+      working-directory: .github/Terraform/backend
+      run: |
+        terraform apply -auto-approve -var resource_group_name=$terraformStorageRG -var storage_account_name=$terraformStorageAccount
