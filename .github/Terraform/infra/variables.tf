@@ -12,7 +12,7 @@ variable "env" {
 
 variable "location" {
   type    = string
-  default = "norwayeast"
+  default = "westeurope"
 
   # Must be a key in local.region_short, which supplies the region token in
   # every resource name.
