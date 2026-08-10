@@ -1,10 +1,10 @@
 terraform {
   required_providers {
     azurerm = {
-      source = "hashicorp/azurerm"
+      source  = "hashicorp/azurerm"
       version = "~> 4.68.0"
     }
-      random = {
+    random = {
       source  = "hashicorp/random"
       version = "~> 3.4.3"
     }
@@ -24,19 +24,19 @@ provider "azurerm" {
     resource_group {
       prevent_deletion_if_contains_resources = false
     }
-    
-    
+
+
     key_vault {
       purge_soft_delete_on_destroy = false
     }
-    
-    
+
+
   }
   use_oidc = true
 }
 
 # Resource Group
 resource "azurerm_resource_group" "rg" {
-  name     = "RG-tflocal-${var.env}-weu"
+  name     = local.rg_name
   location = var.location
 }
