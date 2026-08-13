@@ -5,3 +5,4 @@ errored.tfstate
 
 /platform/argo-cd-ingress.yaml
 /platform/cluster-issuer.yaml
+/platform/nginx-demo-app.yaml
