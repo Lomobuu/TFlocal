@@ -2,3 +2,6 @@
 .terraform.lock.hcl
 CLAUDE.md
 errored.tfstate
+
+/platform/argo-cd-ingress.yaml
+/platform/cluster-issuer.yaml
