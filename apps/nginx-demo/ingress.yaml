@@ -1,0 +1,19 @@
+# apps/nginx-demo/ingress.yaml
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: nginx-demo
+  namespace: nginx-demo
+spec:
+  ingressClassName: nginx
+  rules:
+    - host: nginx-demo.108.142.41.203.nip.io
+      http:
+        paths:
+          - path: /
+            pathType: Prefix
+            backend:
+              service:
+                name: nginx-demo
+                port:
+                  number: 80
