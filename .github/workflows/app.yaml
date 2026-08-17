@@ -7,7 +7,7 @@ on:
   workflow_dispatch:
 
 env:
-  PRODREGISTRY: acrtflocal.azurecr.io
+  PRODREGISTRY: acrtflocaltestweu.azurecr.io
   IMAGE_NAME: ${{ github.repository }}
 
 permissions:
@@ -34,7 +34,7 @@ jobs:
 
       - name: Login to Azure Container Registry (OIDC)
         run: |
-          az acr login --name acrtflocal
+          az acr login --name acrtflocaltestweu
 
       - name: Extract metadata (tags, labels) for Docker
         id: meta
