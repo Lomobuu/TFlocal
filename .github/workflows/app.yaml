@@ -50,8 +50,8 @@ jobs:
         uses: docker/build-push-action@v5
         with:
           push: true
-          context: ./web/reactdemo   # <-- update once confirmed by debug step
-          file: ./web/reactdemo/Dockerfile  # <-- update once confirmed by debug step
+          context: ./web/react-demo   # <-- update once confirmed by debug step
+          file: ./web/react-demo/Dockerfile  # <-- update once confirmed by debug step
           cache-from: type=gha
           cache-to: type=gha,mode=max
           tags: ${{ steps.meta.outputs.tags }}
