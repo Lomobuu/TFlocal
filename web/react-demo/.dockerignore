@@ -1,0 +1,9 @@
+# Keep the build context small and force the image to build from source
+# rather than copying a locally-built dist/ or a host node_modules tree.
+node_modules
+dist
+npm-debug.log*
+.git
+.gitignore
+Dockerfile
+.dockerignore
