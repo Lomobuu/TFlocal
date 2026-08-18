@@ -13,15 +13,15 @@ spec:
     metadata:
       labels:
         app: nginx-demo
+        azure.workload.identity/use: "true"
     spec:
+      serviceAccountName: workload-identity-sa
       containers:
         - name: tflocal
           image: acrtflocaltestweu.azurecr.io/lomobuu/tflocal:main
           imagePullPolicy: Always
-
           ports:
             - containerPort: 80
-
           volumeMounts:
             - name: secrets-store
               mountPath: "/mnt/secrets"
