@@ -6,6 +6,7 @@ errored.tfstate
 /platform/argo-cd-ingress.yaml
 /platform/cluster-issuer.yaml
 /platform/nginx-demo-app.yaml
+/apps/nginx-demo/ingress.yaml
 
 # Node build artifacts. package-lock.json IS tracked, on purpose — the
 # Dockerfile runs `npm ci`, which requires it.
